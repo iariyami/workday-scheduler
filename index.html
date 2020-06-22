@@ -26,16 +26,19 @@
     <header class="jumbotron">
       <h1 class="display-3">Work Day Scheduler</h1>
       <p class="lead">A simple calendar app for scheduling your work day</p>
+
+      <!-- Where current time is placed above the calendar -->
       <p id="currentDay" class="lead"></p>
     </header>
+    <!-- Timeblocks -->
     <div class="container">
       <div
         id="calendar-row1"
         class="row justify-content-md-center border-top border-bottom calendar-row"
       >
         <div id="time1" class="col-md-1">8 AM</div>
-        <textarea rows="3" id="text-entry1" class="col-md-10 task"></textarea>
-        <button id="save" class="col-md-1">
+        <textarea class="col-md-10 task"></textarea>
+        <button class="col-md-1">
           <i class="far fa-save"></i>
         </button>
       </div>
@@ -128,6 +131,7 @@
       <footer class="row"><br /><br /></footer>
     </div>
 
+    <!-- Sources for moment.js, jQuery, and linking our created script file -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>

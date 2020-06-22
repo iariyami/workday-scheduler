@@ -1,16 +1,16 @@
 $(document).ready(function () {
   $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm:ss a"));
 
-  $(".save").on("click", function () {
-    //get nearby values.
-    console.log(this);
+  // Adding a save feature for each tie block
+  $(".saveBtn").on("click", function () {
+    // Creating variables to store user input insode of
     var text = $(this).siblings(".task").val();
     var time = $(this).parent().attr("id");
 
-    //set items in local storage.
+    // Setting the items in local storage.
     localStorage.setItem(time, text);
   });
-  //load any saved data from LocalStorage - do this for each hour created.
+  // Loading the dated in the Local Storage
   $("#time1 .task").val(localStorage.getItem("time1"));
   $("#time2 .task").val(localStorage.getItem("time2"));
   $("#time3 .task").val(localStorage.getItem("time3"));
@@ -22,14 +22,12 @@ $(document).ready(function () {
   $("#time9 .task").val(localStorage.getItem("time9"));
   $("#time10 .task").val(localStorage.getItem("time10"));
 
-  for (var i = 8; i < 18; i++) {
-    if (i < currentHour) {
-      document.getElementById(i.toString()).classList.add("past");
-    } else if (i === currentHour) {
-      document.getElementById(i.toString()).classList.add("present");
-    } else if (i > currentHour) {
-      document.getElementById(i.toString()).classList.add("future");
-    }
-    console.log([currentHour]);
+  // Changing the colors of the rows depending on the hour of the workday
+  if (i > moment().hours()) {
+    textField.addClass("future");
+  } else if (i < moment().hours()) {
+    textField.addClass("past");
+  } else if (i == moment().hours()) {
+    textField.addClass("present");
   }
 });
